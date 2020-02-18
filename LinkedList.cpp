@@ -44,6 +44,16 @@ int LinkedList::removeFront()
     return val;
 }
 
+Node* LinkedList::runToEnd()
+{
+    Node* currNode = this->head;
+    while (currNode -> getNextNode())
+    {
+        currNode = currNode -> getNextNode();
+    }
+    return currNode;
+}
+ 
 void LinkedList::addEnd(int payload)
 {
     Node* newNode = new Node(payload);
@@ -82,12 +92,7 @@ int LinkedList::removeEnd()
     }
     else
     {
-        Node* firstTraverse = this->head;
-        while(firstTraverse->getNextNode() != 0)
-        {
-            firstTraverse = firstTraverse->getNextNode();
-
-        }
+        Node* firstTraverse = this->runToEnd();
 
         Node* secondTraverse = this->head;
         while(secondTraverse->getNextNode() != firstTraverse)

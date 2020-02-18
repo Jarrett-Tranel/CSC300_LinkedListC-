@@ -10,6 +10,7 @@ class LinkedList
     private: 
         Node* head;
         int count;
+        Node* runToEnd();
 
     //declares methods for LinkedList.cpp
     public: 
